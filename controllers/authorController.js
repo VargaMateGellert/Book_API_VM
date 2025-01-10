@@ -9,12 +9,43 @@ createAuthor = async (req, res) => {
     }
 }
 
-getAllAuthors = async (req, res, next) => {
+getAuthors = async (req, res, next) => {
     try {
-        const authors = await authorModel.find();
-        res.json(authors)
+        let query;
+        let queryStr = JSON.stringify(req.query);
+        queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
+        query = JSON.parse(queryStr);
+
+        const page = parseInt(req.query.page, 10) || 1;
+        const limit = parseInt(req.query.limit, 5) || 5;
+        const skip = (page - 1) * limit;
+
+        let authorQuery = authorModel.find(query);
+
+        if (req.query.select) {
+            const fields = req.query.select.split(',').join(' ');
+            authorQuery = authorQuery.select(fields);
+        }
+
+        if (req.query.sort) {
+            const sortBy = req.query.sort.split(',').join(' ');
+            authorQuery = authorQuery.sort(sortBy);
+        } else {
+            authorQuery = authorQuery.sort('title');
+        }
+
+        authorQuery = authorQuery.skip(skip).limit(limit);
+        const authors = await authorQuery;
+        const total = await authorModel.countDocuments(query);
+
+        res.json({
+            count: authors.length,
+            total,
+            page,
+            data: authors,
+        });
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
 
@@ -62,7 +93,7 @@ putAuthorById = async (req, res, next) => {
 
 module.exports = {
     createAuthor,
-    getAllAuthors,
+    getAuthors,
     getAuthorById,
     putAuthorById,
     deleteAuthorById}
