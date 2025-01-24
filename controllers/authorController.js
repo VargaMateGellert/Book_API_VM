@@ -1,4 +1,5 @@
 const authorModel = require('../models/authorModel');
+const ErrorResponse = require('../utils/errorResponse');
 
 createAuthor = async (req, res) => {
     try {
@@ -58,7 +59,7 @@ getAuthorById = async (req, res, next) => {
             res.status(404).send()
         }
     } catch (error) {
-        next(error)
+        next(new ErrorResponse('Id not found', 404));
     }
 }
 

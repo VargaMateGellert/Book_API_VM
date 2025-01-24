@@ -1,0 +1,140 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "books",
+    "collectionId": "cbfd8d28-5303-4e0f-959d-1123a1cd64f7",
+    "dateExported": "2025-01-10T09:47:01.827Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "903ba5cf-0e7a-45c4-9174-e3d4aeb76f89",
+            "colId": "cbfd8d28-5303-4e0f-959d-1123a1cd64f7",
+            "containerId": "",
+            "name": "get all",
+            "url": "localhost:3000/books/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-01-10T07:32:39.193Z",
+            "modified": "2025-01-10T07:33:06.800Z",
+            "headers": []
+        },
+        {
+            "_id": "4b2a8af7-19cd-457f-b0c3-5b66e8cdd15c",
+            "colId": "cbfd8d28-5303-4e0f-959d-1123a1cd64f7",
+            "containerId": "",
+            "name": "get by id",
+            "url": "localhost:3000/books/64b1b1c8e67f4b4a0a000102",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-01-10T07:33:20.639Z",
+            "modified": "2025-01-10T07:35:11.557Z",
+            "headers": []
+        },
+        {
+            "_id": "67283208-8eac-4d96-a29b-d86c234a4f85",
+            "colId": "cbfd8d28-5303-4e0f-959d-1123a1cd64f7",
+            "containerId": "",
+            "name": "put",
+            "url": "localhost:3000/books/64b1b1c8e67f4b4a0a000102",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2025-01-10T07:35:28.344Z",
+            "modified": "2025-01-10T07:36:56.498Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"1984\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "70252ff3-bc46-4c01-a015-ca69d9bdfc68",
+            "colId": "cbfd8d28-5303-4e0f-959d-1123a1cd64f7",
+            "containerId": "",
+            "name": "post",
+            "url": "localhost:3000/books/",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2025-01-10T07:37:08.414Z",
+            "modified": "2025-01-10T07:59:39.498Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Animal farm\",\n  \"authorId\": \"64b1b1c8e67f4b4a0a000002\",\n  \"genre\": \"dystopian\",\n  \"price\": 30,\n  \"pages\": 150,\n  \"publishYear\": 1968\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b014f415-2a48-4ba5-88d0-411892d677b6",
+            "colId": "cbfd8d28-5303-4e0f-959d-1123a1cd64f7",
+            "containerId": "",
+            "name": "delete",
+            "url": "localhost:3000/books/64b1b1c8e67f4b4a0a000102",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2025-01-10T07:43:26.759Z",
+            "modified": "2025-01-10T07:43:37.608Z",
+            "headers": []
+        },
+        {
+            "_id": "7b6f5856-1112-4428-95ff-442b0adf99f8",
+            "colId": "cbfd8d28-5303-4e0f-959d-1123a1cd64f7",
+            "containerId": "",
+            "name": "get with filter parameter",
+            "url": "localhost:3000/books?price[lt]=50&select=title, price&sort=title",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2025-01-10T08:06:46.994Z",
+            "modified": "2025-01-10T09:44:54.617Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "price[lt]",
+                    "value": "50",
+                    "isPath": false
+                },
+                {
+                    "name": "sort",
+                    "value": "",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "select",
+                    "value": "title, price",
+                    "isPath": false
+                },
+                {
+                    "name": "sort",
+                    "value": "title",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "9d991945-360f-4826-8f7e-71d85dbdc417",
+            "colId": "cbfd8d28-5303-4e0f-959d-1123a1cd64f7",
+            "containerId": "",
+            "name": "get authors with parameters",
+            "url": "localhost:3000/authors?select=name,birthYear&sort=birthYear",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2025-01-10T09:14:35.469Z",
+            "modified": "2025-01-10T09:29:15.291Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "select",
+                    "value": "name,birthYear",
+                    "isPath": false
+                },
+                {
+                    "name": "sort",
+                    "value": "birthYear",
+                    "isPath": false
+                }
+            ]
+        }
+    ],
+    "ref": "yjFTtw7GPGOoMWDBRp_WizLUFaodqu7bLPagn_5ZsffEiMhQvkPRrFYG8aRGUx9fmZ5xz6cYGpgKyZD0NHOxcQ"
+}

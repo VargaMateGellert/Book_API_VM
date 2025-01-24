@@ -1,0 +1,174 @@
+{
+    "info": {
+        "_postman_id": "37b641cb-305d-456c-b553-ebb9af403952",
+        "name": "books",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "get all",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/books/",
+                    "path": [
+                        "books"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "get by id",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/books/64b1b1c8e67f4b4a0a000102",
+                    "path": [
+                        "books",
+                        "64b1b1c8e67f4b4a0a000102"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "put",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "localhost:3000/books/64b1b1c8e67f4b4a0a000102",
+                    "path": [
+                        "books",
+                        "64b1b1c8e67f4b4a0a000102"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"title\": \"1984\"\n}"
+                }
+            }
+        },
+        {
+            "name": "post",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "localhost:3000/books/",
+                    "path": [
+                        "books"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"title\": \"Animal farm\",\n  \"authorId\": \"64b1b1c8e67f4b4a0a000002\",\n  \"genre\": \"dystopian\",\n  \"price\": 30,\n  \"pages\": 150,\n  \"publishYear\": 1968\n}"
+                }
+            }
+        },
+        {
+            "name": "delete",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "localhost:3000/books/64b1b1c8e67f4b4a0a000102",
+                    "path": [
+                        "books",
+                        "64b1b1c8e67f4b4a0a000102"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "get with filter parameter",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/books?price[lt]=50&select=title, price&sort=title",
+                    "query": [
+                        {
+                            "key": "price[lt]",
+                            "value": "50"
+                        },
+                        {
+                            "key": "sort",
+                            "value": "",
+                            "disabled": true
+                        },
+                        {
+                            "key": "select",
+                            "value": "title, price"
+                        },
+                        {
+                            "key": "sort",
+                            "value": "title"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "books"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        },
+        {
+            "name": "get authors with parameters",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/authors?select=name,birthYear&sort=birthYear",
+                    "query": [
+                        {
+                            "key": "select",
+                            "value": "name,birthYear"
+                        },
+                        {
+                            "key": "sort",
+                            "value": "birthYear"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "authors"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            }
+        }
+    ]
+}

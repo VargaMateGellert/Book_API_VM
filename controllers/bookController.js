@@ -1,16 +1,17 @@
 const bookModel = require('../models/bookModel');
+const ErrorResponse = require('../utils/errorResponse');
 
 createBook = async (req, res, next) => {
     try {
         const newBook = await bookModel.create(req.body);
         res.status(201).json(newBook);
     } catch (error) {
-        next(error);
+        next(new ErrorResponse('Error in creating book', 400));
     }
 }
 
 
-const getBooks = async (req, res, next) => {
+getBooks = async (req, res, next) => { 
     try {
         let query;
         let queryStr = JSON.stringify(req.query);
@@ -61,7 +62,7 @@ getBookById = async (req, res, next) => {
             res.status(404).send()
         }
     } catch (error) {
-        next(error)
+        next(new ErrorResponse('Id not correct', 404))
     }
 }
 

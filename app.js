@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bookRoutes = require('./routers/bookRoutes');
 const authorRoutes = require('./routers/authorRoutes');
+const errorHandler = require('./middlewares/error');
 
 mongoose.set('strictQuery', true);
 const connString = process.env.DATABASE;
@@ -17,6 +18,7 @@ const app = express();
 app.use(express.json());
 app.use('/books', bookRoutes);
 app.use('/authors', authorRoutes);
+app.use(errorHandler);
 app.use((error, req, res, next) => {
     res.status(500).json({ message: error.message });
 });
